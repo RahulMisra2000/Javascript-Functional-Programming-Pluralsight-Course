@@ -1,0 +1,121 @@
+[
+    {
+        "givenNames": ["Henry", "Louis"],
+        "surname": "Jones",
+        "age": 35,
+        "birthplace": "Philadelphia, PA",
+        "gender": "Male",
+        "married": true,
+        "living": true,
+        "dnaTestId": "db19023875c349dcaba2f6fde0bb443e",
+        "family": {
+            "motherId": 1,
+            "fatherId": 2,
+            "siblings": []
+        }
+    },
+    {
+        "givenNames": ["Mary"],
+        "surname": "Smithson",
+        "age": 48,
+        "gender": "Female",
+        "married": false,
+        "living": true,
+        "dnaTestId": "e1ac5265-01a1-4f4d-9afc-e2dcdc4bcfa8",
+        "family": {
+            "motherId": 3,
+            "fatherId": 4,
+            "siblings": [5, 6]
+        }
+    },
+    {
+        "givenNames": ["Ronald"],
+        "surname": "Haartjes",
+        "age": 68,
+        "birthplace": "Denmark",
+        "gender": "Male",
+        "married": true,
+        "living": true,
+        "dnaTestId": "20e94cef-6f04-4c71-99c7-4d44c4da85da",
+        "family": {
+            "motherId": 7,
+            "fatherId": 8,
+            "siblings": []
+        }
+    },
+    {
+        "givenNames": ["Rachel"],
+        "surname": "Dyer",
+        "age": 88,
+        "birthplace": "Montgomery, AL",
+        "gender": "Female",
+        "married": true,
+        "living": false,
+        "dnaTestId": "",
+        "family": {
+            "motherId": 9,
+            "fatherId": 10,
+            "siblings": []
+        }
+    },
+    {
+        "givenNames": ["Steven", "Alan"],
+        "surname": "Lenorich",
+        "age": 51,
+        "birthplace": "Baltimore, MD",
+        "gender": "Male",
+        "married": true,
+        "living": true,
+        "dnaTestId": ""
+    },
+    {
+        "givenNames": ["Lillian", "Roberta", "Marie"],
+        "surname": "Caspar",
+        "age": 41,
+        "birthplace": "Sacramento, CA",
+        "gender": "Female",
+        "married": true,
+        "living": true,
+        "dnaTestId": "94ca0995-9d22-4a5f-b4b9-eb3fa2769cc4"
+    },
+    {
+        "givenNames": ["Michael", "James"],
+        "surname": "Jay",
+        "age": 26,
+        "birthplace": "Boise, ID",
+        "gender": "Male",
+        "married": false,
+        "living": true,
+        "dnaTestId": ""
+    },
+    {
+        "givenNames": ["Carin", "Loiuse"],
+        "surname": "Hansen",
+        "age": 37,
+        "birthplace": "Harrisburg, PA",
+        "gender": "Female",
+        "married": true,
+        "living": false,
+        "dnaTestId": "6c31d876-d95b-466c-be0b-58d2efae1c6e"
+    },
+    {
+        "givenNames": ["Timothy", "Robert", "Steven"],
+        "surname": "Dutton",
+        "age": 17,
+        "birthplace": "Chicago, IL",
+        "gender": "Male",
+        "married": false,
+        "living": true,
+        "dnaTestId": ""
+    },
+    {
+        "givenNames": ["Katherine", "Mary"],
+        "surname": "Dutton",
+        "age": 19,
+        "birthplace": "Chicago, IL",
+        "gender": "Female",
+        "married": false,
+        "living": true,
+        "dnaTestId": ""
+    }
+]
