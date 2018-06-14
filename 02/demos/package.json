@@ -1,0 +1,18 @@
+{
+    "author": "david mann",
+    "name": "functional-js-libs",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "dependencies": {
+        "fkit": "^1.4.0",
+        "folktale": "^2.1.0",
+        "immutable": "^3.8.2",
+        "monet": "@0.9.0-alpha.5-1",
+        "ramda": "^0.25.0",
+        "sanctuary": "^0.14.1"
+    },
+    "devDependencies": {
+        "nodemon": "^1.17.3"
+    }
+}
