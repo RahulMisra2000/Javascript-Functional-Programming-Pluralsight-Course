@@ -4,10 +4,8 @@ const filterEq  = (prop, value, arr) => { return arr.filter((elem) => { return e
 const filterNEq = (prop, value, arr) => { return arr.filter((elem) => { return elem[prop] !== value; });  };
 
 const compose = (...funcs) => {
-    return (data) => {
-        return funcs.reduceRight((value, func) => {
-            return func(value);
-        }, data);
+        // Calling compose() returns a function
+        return (data) => { return funcs.reduceRight((value, func) => { return func(value); }, data);
     };
 };
 
