@@ -1,42 +1,16 @@
 const people = require('./people.json');
 
-// #region Supporting
-console.log('\n'.repeat(250));
-// #endregion
+// Returns a filtered array whose every element has prop equal to value
+// 3 input variables ------------
+const filterEq  = (prop, value, arr) => { return arr.filter((elem) => { return elem[prop] === value; }); };
 
-const filterEq = (prop, value, arr) => {
-    return arr.filter((elem) => {
-        return elem[prop] === value;
-    });
-};
-const filterNEq = (prop, value, arr) => {
-    return arr.filter((elem) => {
-        return elem[prop] !== value;
-    });
-};
-
-const compose = (...funcs) => {
-    return (data) => {
-        return funcs.reduceRight((value, func) => {
-            return func(value);
-        }, data);
-    };
-};
-
+// 2 input variables ------------
 const isMarried = (value, arr) => filterEq('married', value, arr);
 
-const married = (arr) => isMarried(true, arr);
-const single = (arr) => isMarried(false, arr);
+// 1 input variable ------------
+const married   = (arr)        => isMarried(true, arr);
 
-const out = single(people);
+// The above is called currying as we lower the number of input variables.
 
-// #region Supporting
+const out = married(people);
 console.log(out);
-console.log(
-    '\r\n\r\nNumRecords: ',
-    typeof out === 'string' ? 1 : out.length
-);
-console.log(' ');
-console.log('____________________________');
-
-// #endregion
