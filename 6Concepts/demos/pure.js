@@ -1,23 +1,19 @@
 let c = 5;
 
-const func1 = (a, b) => a + b; // pure
+// pure 
+const func1 = (a, b) => a + b;
 
-const func2 = (a, b) => a + b + c; // impure
+// impure because func2 accesses c which is not an input parameter to the function
+const func2 = (a, b) => a + b + c; 
 
-const func3 = (a, b) => a + b + func1(a, b); // impure
+// impure because func3 accesses func1() which is not an input parameter to the function
+const func3 = (a, b) => a + b + func1(a, b);
 
-const func4 = (a, b) => {
-    // impure
-    c = a + b;
-};
+// impure because func4 modifies c which is outside the function
+const func4 = (a, b) => {  c = a + b; };
 
-const func5 = (a, b) => {
-    // impure
-    console.log(a + b);
-};
+// impure because func5 accesses console.log() function which is not an input parameter to the function
+const func5 = (a, b) => { console.log(a + b); };
 
-const func6 = (a, b) => {
-    // impure
-    func1(a, b);
-    return a + b;
-};
+// impure because func6 accesses func1() which is not an input parameter to the function
+const func6 = (a, b) => { func1(a, b); return a + b; };
