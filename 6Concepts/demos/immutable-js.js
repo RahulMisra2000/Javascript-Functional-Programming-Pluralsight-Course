@@ -4,7 +4,12 @@ const people = require('./people.json');
 console.log('\n'.repeat(250));
 let out = 'no output';
 // #endregion
+
+
+// Converting a javascript array to Immutable.js's  List data structure
 out = I.List(['a', 'b']);
+
+// Converting a javascript object to Immutable.js's  Map data structure
 out = I.Map({ a: 'b', c: 123 });
 out = I.Map({ a: 'b', c: { d: 123 } });
 
