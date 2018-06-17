@@ -15,6 +15,14 @@ out = I.Map({ a: 'b', c: { d: 123 } });
 
 // const iPeople = I.List(people);
 // out = iPeople;
+
+// By using the .fromJS() method we get Nested data structures 
+// meaning your data (people in this example) can be any level deep and immutable.js will 
+// create an immutable Nested data structure that you will be able to use.
+// Doing this because Immutable.js's Map and List only provide immutability for top-level data only....
+// meaning { a: 'b', c: { d: 123 })  .... for a and b only and not for c .... 
+// c will be a reference 
+
 const iPeople = I.fromJS(people);
 out = iPeople;
 out = iPeople.first();
