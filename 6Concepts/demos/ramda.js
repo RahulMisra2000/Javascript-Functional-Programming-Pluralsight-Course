@@ -61,13 +61,17 @@ const marriedMenWithDnaTestByAge2   = R.pipe(
                                                 );
 out = marriedMenWithDnaTestByAge2(people);
 
-// Ramda.js's map() method returns a new list (think array) just like how pure javascript's array's map method returns **********
-const allBirthPlaces        = R.map(itm => itm.birthplace);
+// Ramda.js's map() method returns a new list (think array) of things, returned by the function it is procided, 
+// just like how pure javascript's array's map method returns **********
+const allBirthPlaces        = R.map(itm => { return itm.birthplace});
 out = allBirthPlaces(people);
 
-// R.prop() returns the value of a prperty specified
 // R.propOr() returns the value of a prperty specified and if that property does not exist then it returns a specified default
-allBirthplacesOrDefault     = R.map(val => R.propOr('(not specified)', 'birthplace', val));
+// In this example we want to return (not specified) if the birthplace property is not specified in the top level people array of
+// objects ... Another file in the github is people.json...take a look at it ...
+
+
+allBirthplacesOrDefault     = R.map(val => { return R.propOr('(not specified)', 'birthplace', val)} );
 out = allBirthplacesOrDefault(people);
 
 //const allMotherIds        = R.map(val => val.family.motherId);
