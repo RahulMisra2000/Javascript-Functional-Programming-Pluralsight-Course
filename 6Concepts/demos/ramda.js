@@ -66,6 +66,9 @@ out = marriedMenWithDnaTestByAge2(people);
 const allBirthPlaces        = R.map(itm => { return itm.birthplace});
 out = allBirthPlaces(people);
 
+
+
+// ***************** ACCESSING TOP LEVEL PROPERTIES ************************************************
 // R.propOr() returns the value of a prperty specified and if that property does not exist then it returns a specified default
 // In this example we want to return (not specified) if the birthplace property is not specified in the top level people array of
 // objects.... 
@@ -107,6 +110,12 @@ out = allBirthPlaces(people);
 allBirthplacesOrDefault     = R.map(val => { return R.propOr('(not specified)', 'birthplace', val)} );
 out = allBirthplacesOrDefault(people);
 
+
+
+
+// ***************** ACCESSING NESTED PROPERTIES ************************************************
+// ************ Any property under the family object in the example data above *******************
+
 // This will give you an eror if either family is not a property or motherId is not a property of family.
 // const allMotherIds        = R.map(val => val.family.motherId);
 
@@ -119,6 +128,10 @@ out = allMotherIds(people);
 // returned then, use R.pathOr 
 allMotherIdsOrDefault       = R.map(val => R.pathOr('(not specified)', ['family', 'motherId'], val));
 out = allMotherIdsOrDefault(people);
+// ***************** ACCESSING NESTED PROPERTIES ************************************************
+
+
+
 
 // R.uniq() will remove duplicates from the output of the function to its right ...
 const uniquePlaces          = R.compose(R.uniq, allBirthplacesOrDefault);
