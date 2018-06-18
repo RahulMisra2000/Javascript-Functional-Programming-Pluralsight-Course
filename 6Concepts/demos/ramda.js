@@ -111,10 +111,12 @@ out = allBirthplacesOrDefault(people);
 // const allMotherIds        = R.map(val => val.family.motherId);
 
 // So, to avoid the error use R.path(). We tell path the full path to the property whose value we are interested in ....
+// IF that property does not exist then the value undefined will be returned
 const allMotherIds          = R.map(val => R.path(['family', 'motherId'], val));
 out = allMotherIds(people);
 
-// Again just like R.propOr we have R.pathOr .... just in case we want some default value returned if there is no such property
+// Again, if we are NOT interested in getting the value undefined returned and instead we want some default value (that we specify)
+// returned then, use R.pathOr 
 allMotherIdsOrDefault       = R.map(val => R.pathOr('(not specified)', ['family', 'motherId'], val));
 out = allMotherIdsOrDefault(people);
 
