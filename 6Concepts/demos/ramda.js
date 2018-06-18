@@ -1,10 +1,12 @@
 // --------------------------------------------------------------------------------------------------
 // VERY IMPORTANT
 // --------------------------------------------------------------------------------------------------
-// If you are using nodejs with pure javascript then you need to do require() as shown below
-// If you want to use Ramda.js in a browser environment then 
-//      1. you would pull it in using <script tag  OR 
-//      2. If you are using Angular then you could do the nice design pattern described in Angular google drive doc for lodash
+// Pull down ramda.js using npm
+// If you want to use Ramda.js in node environment with pure javascript then you need to do require() as shown below
+// If you want to use Ramda.js in node environment with typescript then you can bring down the types file as well and use import syntax
+// If you want to use Ramda.js in a browser environment using pure javascript then you would pull it in using <script tag 
+// If you want to use Ramda.js in a browser environment with typescript (Angular does that for example)
+//    then you could do the nice design pattern described in Angular google drive doc for lodash
 // 
 // --------------------------------------------------------------------------------------------------
 
@@ -12,10 +14,7 @@
 const R = require('ramda');
 const people = require('./people.json');
 
-// #region Supporting
-console.log('\n'.repeat(250));
 let out = 'no value';
-// #endregion
 
 // Ramda provides a filter method. It has over 200 methods, check out the documentation  -----------
 // --------------------------------------------------------------------------------------------------
@@ -32,17 +31,16 @@ const men = filterEq('gender', 'Male');
 const withoutDnaTest = filterEq('dnaTestId', '');
 const withDnaTest = filterNEq('dnaTestId', '');
 
+// Example of executing one of the above pure functions
 out = withoutDnaTest(people);
 
-//sorts:
-const sortByProp = propName => R.sortBy(R.prop(propName));
-
 // We can use the Ramada.js's R.compose() method to do COMPOSITION (another feature of Functional Programming) *************
-const sortByPropDesc = propName => R.compose(R.reverse, R.sortBy(R.prop(propName)));
+const sortByProp      = propName => R.sortBy(R.prop(propName));
+const sortByPropDesc  = propName => R.compose(R.reverse, R.sortBy(R.prop(propName)));
 
-out = sortByPropDesc('married')(people);  // sortByPropDesc is a function ... to execute it we need to do () after it 
-                                          // that is why we have (people) after it ....
-
+// sortByPropDesc is a function defined above ... to execute it we need to do () after it, ie why we have (people) after it ....
+out = sortByPropDesc('married')(people);  
+                                          
 //Ramda's R.compose() method executes the function name parameters supplied to it from R --> L   *************************
 const marriedByAge                  = R.compose(sortByPropDesc('age'), married);
 const menWithDnaTest                = R.compose(men, withDnaTest);
@@ -63,10 +61,12 @@ const marriedMenWithDnaTestByAge2   = R.pipe(
                                                 );
 out = marriedMenWithDnaTestByAge2(people);
 
-
+// Ramda.js's map() method returns a new list (think array) just like how pure javascript's array's map method returns **********
 const allBirthPlaces        = R.map(itm => itm.birthplace);
 out = allBirthPlaces(people);
 
+// R.prop() returns the value of a prperty specified
+// R.propOr() returns the value of a prperty specified and if that property does not exist then it returns a specified default
 allBirthplacesOrDefault     = R.map(val => R.propOr('(not specified)', 'birthplace', val));
 out = allBirthplacesOrDefault(people);
 
