@@ -68,21 +68,60 @@ out = allBirthPlaces(people);
 
 // R.propOr() returns the value of a prperty specified and if that property does not exist then it returns a specified default
 // In this example we want to return (not specified) if the birthplace property is not specified in the top level people array of
-// objects ... Another file in the github is people.json...take a look at it ...
-
+// objects.... 
+// NOTE:birthplace is A TOP LEVEL property of the array of objects in people.json
+// ... Another file in the github is people.json...take a look at it ...
+// This is what people.json looks like
+//[
+//  {
+//        "givenNames": ["Henry", "Louis"],
+//        "surname": "Jones",
+//        "age": 35,
+//        "birthplace": "Philadelphia, PA",
+//        "gender": "Male",
+//        "married": true,
+//        "living": true,
+//        "dnaTestId": "db19023875c349dcaba2f6fde0bb443e",
+//        "family": {
+//           "motherId": 1,
+//            "fatherId": 2,
+//            "siblings": []
+//        }
+//    },
+//    {
+//        "givenNames": ["Mary"],
+//        "surname": "Smithson",
+//        "age": 48,
+//        "gender": "Female",
+//        "married": false,
+//        "living": true,
+//        "dnaTestId": "e1ac5265-01a1-4f4d-9afc-e2dcdc4bcfa8",
+//       "family": {
+//            "motherId": 3,
+//            "fatherId": 4,
+//            "siblings": [5, 6]
+//        }
+//    }
+// ]
 
 allBirthplacesOrDefault     = R.map(val => { return R.propOr('(not specified)', 'birthplace', val)} );
 out = allBirthplacesOrDefault(people);
 
-//const allMotherIds        = R.map(val => val.family.motherId);
+// This will give you an eror if either family is not a property or motherId is not a property of family.
+// const allMotherIds        = R.map(val => val.family.motherId);
+
+// So, to avoid the error use R.path(). We tell path the full path to the property whose value we are interested in ....
 const allMotherIds          = R.map(val => R.path(['family', 'motherId'], val));
 out = allMotherIds(people);
 
+// Again just like R.propOr we have R.pathOr .... just in case we want some default value returned if there is no such property
 allMotherIdsOrDefault       = R.map(val => R.pathOr('(not specified)', ['family', 'motherId'], val));
 out = allMotherIdsOrDefault(people);
 
+// R.uniq() will remove duplicates from the output of the function to its right ...
 const uniquePlaces          = R.compose(R.uniq, allBirthplacesOrDefault);
 const isSpecified = val => val !== '(not specified)';
+
 
 const placesList            = R.compose(
                                             R.sort((a, b) => a > b),
