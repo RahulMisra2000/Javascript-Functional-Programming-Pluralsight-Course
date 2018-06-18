@@ -1,10 +1,13 @@
-
-// VERY IMPORTANT --------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------
+// VERY IMPORTANT
+// --------------------------------------------------------------------------------------------------
 // If you are using nodejs with pure javascript then you need to do require() as shown below
 // If you want to use Ramda.js in a browser environment then 
 //      1. you would pull it in using <script tag  OR 
 //      2. If you are using Angular then you could do the nice design pattern described in Angular google drive doc for lodash
 // 
+// --------------------------------------------------------------------------------------------------
+
 
 const R = require('ramda');
 const people = require('./people.json');
@@ -14,7 +17,8 @@ console.log('\n'.repeat(250));
 let out = 'no value';
 // #endregion
 
-
+// Ramda provides a filter method. It has over 200 methods, check out the documentation  -----------
+// --------------------------------------------------------------------------------------------------
 const filterEq  = (propName, propVal) => R.filter(R.propEq(propName, propVal));
 const filterNEq = (propName, propVal) => R.filter(R.complement(R.propEq(propName, propVal)));
 
